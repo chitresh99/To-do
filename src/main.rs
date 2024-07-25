@@ -29,6 +29,12 @@ impl TodoApp {
         self.tasks.push(task);
     }
 
+    fn mark_task_as_done(&mut self, index: usize) {
+        if let Some(task) = self.tasks.get_mut(index) {
+            task.done = true;
+        }
+    }
+
     // Displaying tasks
     fn show_tasks(&self) {
         for (index, task) in self.tasks.iter().enumerate() {
@@ -37,6 +43,8 @@ impl TodoApp {
         }
     }
 }
+
+
 
 fn main() {
     let mut app = TodoApp::new();
